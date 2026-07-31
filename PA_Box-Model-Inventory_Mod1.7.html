@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Author: Eric Mckinzy
+        Date: July 30, 2026
+        Purpose: Box Model Inventory - Figurine Inventory Page
+    -->
+    <title>Box Model Inventory</title>
+    <style>
+        nav {
+            margin: 15px 0;
+            padding: 10px 20px;
+            border: 2px solid #333;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #999;
+            padding: 10px 15px;
+        }
+
+        section {
+            margin: 25px 15px;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        aside {
+            margin: 15px;
+            padding: 12px;
+            border-left: 4px solid #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Figurine Inventory</h1>
+</header>
+
+<nav>
+    <a href="#inventory">Inventory Table</a> 
+    <a href="#about">About This Collection</a> 
+    <a href="#notes">Notes</a>
+</nav>
+
+<main>
+
+    <section id="about">
+        <h2>About This Collection</h2>
+        <p>This page catalogs a small inventory of collectible figurines, including
+        their series, condition, and estimated value.</p>
+    </section>
+
+    <article id="inventory">
+        <h2>Inventory Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Figurine Name</th>
+                    <th>Series</th>
+                    <th>Condition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Wasteland Sentinel</td>
+                    <td>Viridian Solstice </td>
+                    <td>Mint</td>
+                </tr>
+                <tr>
+                    <td>Solar Warden</td>
+                    <td>Viridian Solstice</td>
+                    <td>Near Mint</td>
+                </tr>
+                <tr>
+                    <td>Ashvale Ranger</td>
+                    <td>Viridian Solstice</td>
+                    <td>Good</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+
+    <aside id="notes">
+        <h2>Notes</h2>
+        <p>All figurines are stored in a climate-controlled display case to
+        preserve condition over time.</p>
+    </aside>
+
+</main>
+
+<footer style="border-top: 3px solid #333; padding: 12px 0;">
+    <p> 2026 erimck0810</p>
+</footer>
+
+</body>
+</html>
