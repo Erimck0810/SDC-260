@@ -1,0 +1,119 @@
+/*
+    Author:
+    Date:
+    Purpose:
+*/
+
+/* ========================================
+   GLOBAL STYLES
+   ----------------------------------------
+   Uses high-contrast colors for readability, avoids overly complex gradients, and ensures font sizes are easy to read.
+======================================== */
+
+body {
+    font-family: Arial, sans-serif; /* Readable font with fallback */
+    margin: 0; /* Removes default browser spacing around the page */
+    padding: 20px; /* Adds space inside the body */
+    background-color: #1b1f2a; /* Dark background for high contrast and visual theme */
+    color: #f5f7fa; /* Light text color for readability against dark background */
+    line-height: 1.6; /* Increase spacing between lines for easier reading */
+}
+
+/* ========================================
+   HEADER / FOOTER
+======================================== */
+
+header, footer {
+    text-align: center; /* Text centering */
+    margin-bottom: 20px; /* Add space below */
+}
+
+/* ========================================
+   LAYOUT CONTAINER
+======================================== */
+
+.creature-container {
+    
+    /* STEP 3 */
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+/* ========================================
+   CARD BASE STYLE
+   ----------------------------------------
+   Strong contrast improves readability.
+   Spacing and rounded corners improve comfort.
+======================================== */
+
+.creature-card {
+    border-radius: 12px; /* Rounds corners for a softer, modern look */
+    padding: 16px; /* Internal spacing */
+    width: 250px; /* Set consistent card width */
+    background-color: #2a3142; /* Dark card background for contrast */
+    border: 1px solid #3f4a63; /* Subtle border to separate card from background */
+}
+
+/* ========================================
+   TEXT STYLING
+======================================== */
+
+.creature-title {
+    font-size: 1.2rem; /* Scalable font size */
+    font-weight: bold; /* Bold the font*/
+}
+
+/* ========================================
+   CREATURE IMAGE CONTAINER
+   ----------------------------------------
+   This class wraps around the image.
+   It controls the size and shape of the visible image area.
+======================================== */
+
+.creature-image {
+    width: 100%; /* Span the full width of the parent */
+    height: 120px; /* Fixed height so for uniformity */
+    margin-bottom: 10px; /* Add space below */
+    border-radius: 6px; /* Round the corners for a softer look */
+    overflow: hidden; /* Hides any part that extends outside the container */
+}
+
+/* ========================================
+   IMAGE INSIDE CONTAINER
+   ----------------------------------------
+   These rules control how the image behaves inside the container.
+======================================== */
+
+.creature-image img {
+    width: 100%; /* Fill the full width of the container */
+    height: 100%; /* Match the container height */
+    object-fit: contain; /* Scale to fill the container */
+    display: block; /* Remove gaps */
+}
+
+/* ========================================
+   TYPE COLOR CODING
+   ----------------------------------------
+   Defines color and thickness for creature type card borders.
+======================================== */
+
+.dragon { border: 3px solid #ef4444; /* Red */ }
+.mystic { border: 3px solid #a855f7; /* Purple */ }
+.beast { border: 3px solid #22c55e; /* Green */ }
+.aquatic { border: 3px solid #3b82f6; /* Blue */ }
+.mechanical { border: 3px solid #0d4410; /* Green */ }
+.mechanical { border: 3px solid #663803; /* Brown */ }
+.mechanical { border: 3px solid #b1aeae; /* Silver */ }
+
+/* STEP 4 */
+.HermitDog {
+  background-color: #4e3603;
+  color: #f1730b;
+  border: 3px solid #dde00b;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000000;
+}
