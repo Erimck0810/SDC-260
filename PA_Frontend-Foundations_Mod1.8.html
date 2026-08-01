@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Author: Eric Mckinzy
+        Date: July 31, 2026
+        Purpose: Display a collection of comics and books with a sign-up form for collectors. This page uses both external and internal CSS to manage styling, layout, and structure. 
+    -->
+
+    <meta charset="UTF-8">
+    <title>Collectable Books & Comics</title>
+    
+    /* Link to external CSS file for thematic styling */
+    <link rel="stylesheet" href="PA_Frontend-Foundations_StarterFile.css">
+
+    <!-- INTERNAL CSS: Handles layout, spacing, and structure -->
+    <style>
+
+        /* Removes default browser margin */
+        body {
+            margin: 0;
+        }
+
+        /* Centers the main content and limits width */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Styles the hero/header section */
+        .hero {
+            padding: 40px;
+            margin-bottom: 20px;
+            text-align: center; /* centers header text */
+        }
+
+        /* Adds spacing between sections */
+        section {
+            margin-bottom: 40px;
+        }
+
+        /* Creates a flexible layout for book cards */
+        .collection-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Individual book card styling */
+        .book-card {
+            width: 300px;
+            padding: 15px;
+            border-left: 5px solid;
+            border-radius: 10px;
+        }
+
+        /* Stats container styling */
+        .stats {
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        /* Form container styling */
+        form {
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+
+        /* Input and dropdown styling */
+        input, select {
+            padding: 8px;
+            border: 1px solid;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        /* Button styling */
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer alignment and spacing */
+        footer {
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HERO / HEADER SECTION -->
+<header class="hero">
+    <h1>My Collectable Books & Comics</h1>
+    <p>Discover rare editions, legendary comics, and timeless stories across various genres.</p>
+</header>
+
+<main>
+
+    <!-- FEATURED COLLECTION SECTION -->
+    <section>
+        <h2>Featured Collection</h2>
+
+        <div class="collection-grid">
+
+            <article class="book-card">
+                <h3>The Galactic Chronicles</h3>
+                <p><strong>Genre:</strong> Sci-Fi</p>
+                <p>A rare first edition from a cult-favorite space saga featuring interstellar diplomacy and ancient civilizations.</p>
+            </article>
+
+            <article class="book-card">
+                <h3>Hero Turned Monster Lord Can't Stop Summoning Judgemental Spirits</h3>
+                <p><strong>Genre:</strong> Fantasy</p>
+                <p>After being reborn as a monster lord, a former hero must rebuild his new homeland using overpowered skills in this fantasy adventure.</p>
+            </article>
+
+            <article class="book-card">
+                <h3>Detective Noir</h3>
+                <p><strong>Genre:</strong> Mystery</p>
+                <p>A gritty noir comic following a detective navigating corruption and hidden truths in a neon-lit city.</p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- COLLECTION STATISTICS -->
+    <section>
+        <h2>Collection Overview</h2>
+
+        <article class="stats">
+            <p>Total Items: <strong>128</strong></p>
+            <p>Rare Editions: <strong>32</strong></p>
+            <p>Most Collected Genre: <strong>Fantasy</strong></p>
+        </article>
+
+    </section>
+
+    <!-- USER SIGN-UP FORM SECTION -->
+    <section>
+        <h2>Join the Collector Community</h2>
+        <p>Sign up to receive updates on rare finds, new releases, and collector events.</p>
+
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="genre">Favorite Genre</label>
+            <select id="genre" name="genre">
+                <option value="scifi">Sci-Fi</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="mystery">Mystery</option>
+                <option value="horror">Horror</option>
+            </select>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </section>
+
+</main>
+
+<!-- FOOTER SECTION -->
+<footer>
+    <p>© 2026 erimck0810 Archive — Built for passionate readers and avid collectors</p>
+</footer>
+
+</body>
+</html>
