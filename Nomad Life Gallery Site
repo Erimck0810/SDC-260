@@ -1,0 +1,71 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nomad Life Gallery — Homepage</title>
+<link rel="stylesheet" href="Nomad Life Gallery Styles.css">
+</head>
+<body>
+ 
+<div class="site">
+ 
+  <div class="nav">
+    <div class="logo">NOMAD LIFE <span>GALLERY</span></div>
+    <div class="links">
+      <a href="#">Browse</a>
+      <a href="#">Artists</a>
+      <a href="#">Technology</a>
+      <a href="#">My collection</a>
+    </div>
+  </div>
+ 
+  <div class="hero">
+    <h1>Own the art. Verified forever.</h1>
+    <p>Every piece includes a blockchain certificate and a royalty that follows it home.</p>
+    <button class="cta">Browse the collection</button>
+  </div>
+ 
+  <div class="section-label">Featured works</div>
+ 
+  <div class="grid">
+ 
+    <div class="card">
+      <div class="thumb">Image placeholder</div>
+      <div class="body">
+        <div class="badge">✓ Verified on-chain</div>
+        <div class="title">Signal drift</div>
+        <div class="price">$4,200</div>
+      </div>
+    </div>
+ 
+    <div class="card">
+      <div class="thumb">Image placeholder</div>
+      <div class="body">
+        <div class="badge">✓ Verified on-chain</div>
+        <div class="title">Nomadic hours</div>
+        <div class="price">$325</div>
+      </div>
+    </div>
+ 
+    <div class="card">
+      <div class="thumb">Image placeholder</div>
+      <div class="body">
+        <div class="badge">✓ Verified on-chain</div>
+        <div class="title">Ledger bloom</div>
+        <div class="price">$1,850</div>
+      </div>
+    </div>
+ 
+  </div>
+ 
+  <div class="footer">
+    <span>A division of Nomad Life LLC</span>
+    <span>Your work. Your name. Your terms.</span>
+  </div>
+ 
+</div>
+ 
+</body>
+</html>
+ 
