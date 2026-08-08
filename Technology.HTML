@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nomad Life Gallery — Technology</title>
+  <link rel="stylesheet" href="Nomad Life Gallery Styles.css">
+  <style>
+
+    .tech-container {
+      padding: 32px 28px 40px;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .tech-card {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .tech-card h3 {
+      font-size: 18px;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .tech-card p {
+      font-size: 14px;
+      color: var(--charcoal);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .spec-list {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px 12px;
+      font-size: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .spec-list dt {
+      font-weight: 600;
+      color: var(--teal-text);
+    }
+
+    .spec-list dd {
+      color: var(--slate);
+    }
+
+    .spec-list code {
+      background-color: var(--parchment);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: var(--charcoal);
+    }
+
+    .tech-highlight {
+      background-color: var(--ink);
+      color: var(--parchment);
+      border-radius: 12px;
+      padding: 32px 24px;
+      margin-top: 32px;
+    }
+
+    .tech-highlight h3 {
+      color: var(--brass);
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .tech-highlight p {
+      color: var(--slate);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 680px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><a href="index.html" style="color: inherit; text-decoration: none;">Nomad Life: Gallery</a></h1>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="artists.html">Artists</a></li>
+        <li><a href="technology.html" aria-current="page">Technology</a></li>
+        <li><a href="collection.html">My Collection</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="tech-container" aria-labelledby="tech-heading">
+      <h2 id="tech-heading" class="section-label" style="padding-left: 0; padding-top: 0;">Gallery Infrastructure & Architecture</h2>
+      <p style="color: var(--slate); font-size: 14px;">How Nomad Life Gallery guarantees provenance, decentralized storage, and automated creator royalties for remote artists.</p>
+
+      <div class="tech-grid">
+
+        <!-- Tech Pillar 1 -->
+        <article class="tech-card">
+          <h3>Cryptographic Provenance</h3>
+          <p>Every piece registered on Nomad Life carries an immutable proof-of-authenticity stored directly on-chain, verifying geographic origin and artist identity at the moment of capture.</p>
+          
+          <dl class="spec-list">
+            <dt>Standard:</dt>
+            <dd><code>ERC-721 / ERC-1155</code></dd>
+            <dt>Verification:</dt>
+            <dd>On-chain signature check</dd>
+            <dt>Metadata Format:</dt>
+            <dd><code>JSON-LD / EXIF 2.32</code></dd>
+          </dl>
+        </article>
+
+        <!-- Tech Pillar 2 -->
+        <article class="tech-card">
+          <h3>Decentralized Media Storage</h3>
+          <p>High-resolution RAW photographic captures, point-cloud 3D scans, and generative assets are pinned across distributed nodes to guarantee perpetual access without central server reliance.</p>
+          
+          <dl class="spec-list">
+            <dt>Primary Network:</dt>
+            <dd><code>IPFS</code> (InterPlanetary File System)</dd>
+            <dt>Persistence Layer:</dt>
+            <dd><code>Filecoin</code> decentralized storage</dd>
+            <dt>Redundancy:</dt>
+            <dd>Multi-node pin replication</dd>
+          </dl>
+        </article>
+
+        <!-- Tech Pillar 3 -->
+        <article class="tech-card">
+          <h3>Automated Secondary Royalties</h3>
+          <p>Smart contracts automatically route secondary market royalty percentages back to nomad artists regardless of which platform or venue secondary trading occurs on.</p>
+          
+          <dl class="spec-list">
+            <dt>Royalty Spec:</dt>
+            <dd><code>EIP-2981</code> Royalty Standard</dd>
+            <dt>Default Rate:</dt>
+            <dd><code>10%</code> automated split</dd>
+            <dt>Settlement:</dt>
+            <dd>Instant block-time payouts</dd>
+          </dl>
+        </article>
+
+        <!-- Tech Pillar 4 -->
+        <article class="tech-card">
+          <h3>Field Capture Hardware Integration</h3>
+          <p>Nomad artists use field rigs that embed GPS coordinates, atmospheric telemetry, and precise timestamp data into the original media file prior to cryptographic signing.</p>
+          
+          <dl class="spec-list">
+            <dt>Telemetry Data:</dt>
+            <dd>GPS, Altitude, Weather EXIF</dd>
+            <dt>Hardware Units:</dt>
+            <dd>Custom ESP32 / Raspberry Pi sensors</dd>
+            <dt>Encryption:</dt>
+            <dd>Hardware Security Module (HSM)</dd>
+          </dl>
+        </article>
+
+      </div>
+
+      <!-- Feature Highlight Banner -->
+      <section class="tech-highlight" aria-labelledby="highlight-heading">
+        <h3 id="highlight-heading">Zero-Friction Collector Wallets</h3>
+        <p>Collectors can verify authenticity using native web browsers or Web3 wallets. All certificate verification data and media provenance chains can be inspected publicly without requiring proprietary app installations.</p>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      <p>A division of Nomad Life LLC</p>
+      <p>Your work. Your name. Your terms.</p>
+    </div>
+    <p class="copyright">&copy; 2026 Nomad Life: Gallery. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

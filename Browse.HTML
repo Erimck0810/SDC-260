@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nomad Life Gallery — Browse</title>
+  <link rel="stylesheet" href="Nomad Life Gallery Styles.css">
+  <style>
+
+    .browse-container {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 32px;
+      padding: 32px 28px 40px;
+    }
+
+    .filters-sidebar {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      height: fit-content;
+    }
+
+    .filters-sidebar h3 {
+      font-size: 16px;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .filter-group select,
+    .filter-group input[type="text"] {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background-color: var(--parchment);
+      color: var(--charcoal);
+      font-size: 13px;
+    }
+
+    .filter-group .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--charcoal);
+      text-transform: none;
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    .filter-group .checkbox-label input {
+      accent-color: var(--teal);
+    }
+
+    .card .meta-list {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 8px;
+      font-size: 11px;
+      color: var(--slate);
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .card .meta-list dt {
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    @media (max-width: 768px) {
+      .browse-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><a href="index.html" style="color: inherit; text-decoration: none;">Nomad Life: Gallery</a></h1>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="browse.html" aria-current="page">Browse</a></li>
+        <li><a href="artists.html">Artists</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="collection.html">My Collection</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="browse-container">
+      
+      <!-- Filter Sidebar -->
+      <aside class="filters-sidebar" aria-label="Artwork Filters">
+        <h3>Filter Works</h3>
+        <form id="gallery-filters" action="#" method="get">
+          
+          <div class="filter-group">
+            <label for="search-input">Search Title or Artist</label>
+            <input type="text" id="search-input" name="query" placeholder="e.g. Signal drift...">
+          </div>
+
+          <div class="filter-group">
+            <label for="region-select">Nomadic Region</label>
+            <select id="region-select" name="region">
+              <option value="all">All Regions</option>
+              <option value="central-asia">Central Asia</option>
+              <option value="sahara">Sahara & North Africa</option>
+              <option value="patagonia">Patagonia</option>
+              <option value="nordic">Nordic & Arctic</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="medium-select">Medium</label>
+            <select id="medium-select" name="medium">
+              <option value="all">All Mediums</option>
+              <option value="photography">Digital Photography</option>
+              <option value="generative">Generative Art</option>
+              <option value="3d-scan">3D Environmental Scan</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="verified_only" checked>
+              Verified On-Chain Only
+            </label>
+          </div>
+
+        </form>
+      </aside>
+
+      <!-- Main Gallery Display -->
+      <section aria-labelledby="browse-heading">
+        <h2 id="browse-heading" class="section-label" style="padding-left: 0; padding-top: 0;">Browse Collection</h2>
+
+        <div class="grid">
+
+          <!-- Artwork Card 1 -->
+          <article class="card">
+            <figure>
+              <div class="thumb" role="img" aria-label="Artwork image: Signal Drift">Image Placeholder</div>
+              <figcaption class="body">
+                <span class="badge">✓ Verified on-chain</span>
+                <h3 class="title">Signal Drift</h3>
+                <p class="price">$4,200</p>
+                <dl class="meta-list">
+                  <dt>Artist:</dt>
+                  <dd>Maya Lin</dd>
+                  <dt>Region:</dt>
+                  <dd>Himalayan Plateau</dd>
+                </dl>
+              </figcaption>
+            </figure>
+          </article>
+
+          <!-- Artwork Card 2 -->
+          <article class="card">
+            <figure>
+              <div class="thumb" role="img" aria-label="Artwork image: Nomadic Hours">Image Placeholder</div>
+              <figcaption class="body">
+                <span class="badge">✓ Verified on-chain</span>
+                <h3 class="title">Nomadic Hours</h3>
+                <p class="price">$325</p>
+                <dl class="meta-list">
+                  <dt>Artist:</dt>
+                  <dd>Julian Ross</dd>
+                  <dt>Region:</dt>
+                  <dd>Kyoto Hinterlands</dd>
+                </dl>
+              </figcaption>
+            </figure>
+          </article>
+
+          <!-- Artwork Card 3 -->
+          <article class="card">
+            <figure>
+              <div class="thumb" role="img" aria-label="Artwork image: Ledger Bloom">Image Placeholder</div>
+              <figcaption class="body">
+                <span class="badge">✓ Verified on-chain</span>
+                <h3 class="title">Ledger Bloom</h3>
+                <p class="price">$1,850</p>
+                <dl class="meta-list">
+                  <dt>Artist:</dt>
+                  <dd>Soren Aabye</dd>
+                  <dt>Region:</dt>
+                  <dd>Faroese Steppes</dd>
+                </dl>
+              </figcaption>
+            </figure>
+          </article>
+
+          <!-- Artwork Card 4 -->
+          <article class="card">
+            <figure>
+              <div class="thumb" role="img" aria-label="Artwork image: Sahara Dunes">Image Placeholder</div>
+              <figcaption class="body">
+                <span class="badge">✓ Verified on-chain</span>
+                <h3 class="title">Sahara Dunes</h3>
+                <p class="price">$2,100</p>
+                <dl class="meta-list">
+                  <dt>Artist:</dt>
+                  <dd>Amina Mansour</dd>
+                  <dt>Region:</dt>
+                  <dd>Moroccan Erg</dd>
+                </dl>
+              </figcaption>
+            </figure>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      <p>A division of Nomad Life LLC</p>
+      <p>Your work. Your name. Your terms.</p>
+    </div>
+    <p class="copyright">&copy; 2026 Nomad Life: Gallery. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
