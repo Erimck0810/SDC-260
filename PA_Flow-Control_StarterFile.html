@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Author: Eric Mckinzy   
+        Date: August 14, 2024
+        Purpose: Discover trails based on your hiking level and park needs.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenway Park Trail Recommender</title>
+    <link rel="stylesheet" href="PA_Flow-Control_StarterFile.css">
+    <script src="PA_Flow-Control_StarterFile.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <h1>Greenway Park Trail Recommender</h1>
+        <p>Discover trails based on your hiking level and park needs.</p>
+
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="#trails">Trails</a></li>
+                <li><a href="#recommendation">Find a Trail</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main>
+
+        <!-- INTRO SECTION -->
+        <section aria-label="Introduction">
+            <h2>Plan Your Outdoor Adventure</h2>
+            <p>
+                Use the trail explorer below to find safe, scenic paths throughout Greenway Park.
+            </p>
+        </section>
+
+        <!-- TRAIL LIST -->
+        <section id="trails">
+            <h2>Available Trails</h2>
+            <section id="trailContainer" class="grid"></section>
+        </section>
+
+        <!-- RECOMMENDER -->
+        <section id="recommendation">
+            <h2>Trail Finder</h2>
+
+            <!-- Form added for trail recommendation -->
+            <form id="trailForm">
+                <fieldset>
+                    <legend>Are you bringing pets?</legend>
+                    <input type="radio" id="petYes" name="hasPets" value="yes">
+                    <label for="petYes">Yes</label>
+
+                    <input type="radio" id="petNo" name="hasPets" value="no" checked>
+                    <label for="petNo">No</label>
+                </fieldset>
+
+                <p>
+                    <label for="experience">Hiking Experience Level:</label>
+                    <select id="experience" name="experience">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </p>
+
+                <button type="submit" id="submitBtn">Find Trail</button>
+            </form>
+
+            <aside id="result" aria-live="polite"></aside>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>Greenway Park • Open Daily Sunrise to Sunset</p>
+    </footer>
+</body>
+</html>
