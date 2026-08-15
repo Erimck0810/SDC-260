@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nomad Life Gallery — Checkout</title>
+  <link rel="stylesheet" href="Nomad Life Gallery Styles.css">
+  <style>
+ 
+    .checkout-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      padding: 32px 28px 40px;
+    }
+ 
+    .order-summary {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      height: fit-content;
+    }
+ 
+    .order-summary h3 {
+      font-size: 16px;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+ 
+    .order-summary ul {
+      list-style: none;
+      margin: 0 0 16px;
+      padding: 0;
+    }
+ 
+    .order-summary li {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--charcoal);
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+ 
+    .order-summary li:last-child {
+      border-bottom: none;
+    }
+ 
+    .order-summary li .item-price {
+      color: var(--slate);
+      white-space: nowrap;
+    }
+ 
+    .order-summary .order-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+ 
+    .order-summary .order-total .total-value {
+      color: var(--teal-text);
+      font-size: 18px;
+    }
+ 
+    .order-summary .empty-note {
+      font-size: 13px;
+      color: var(--slate);
+    }
+ 
+    .order-summary .order-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--slate);
+      padding-top: 10px;
+    }
+ 
+    .order-summary .order-discount {
+      color: var(--teal-text);
+    }
+ 
+    .checkout-form {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+ 
+    .checkout-form h3 {
+      font-size: 16px;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+ 
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+ 
+    .form-row-3 {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 20px;
+    }
+ 
+    .form-group {
+      margin-bottom: 20px;
+    }
+ 
+    .form-group:last-of-type {
+      margin-bottom: 0;
+    }
+ 
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+ 
+    .form-group .required-mark {
+      color: var(--brass);
+      margin-left: 2px;
+    }
+ 
+    .form-group .hint {
+      display: block;
+      font-size: 11px;
+      font-weight: normal;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--slate);
+      margin-top: 4px;
+    }
+ 
+    .form-group input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background-color: var(--parchment);
+      color: var(--charcoal);
+      font-size: 14px;
+      font-family: inherit;
+    }
+ 
+    .form-group input:focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 1px;
+    }
+ 
+    .form-group input:invalid:not(:placeholder-shown) {
+      border-color: #C0492E;
+    }
+ 
+    .form-group input.is-invalid,
+    .form-group select.is-invalid {
+      border-color: #C0492E;
+    }
+ 
+    .field-error {
+      font-size: 11px;
+      color: #C0492E;
+      margin-top: 4px;
+      min-height: 14px;
+    }
+ 
+    .coupon-row {
+      display: flex;
+      gap: 8px;
+    }
+ 
+    .coupon-row input {
+      flex: 1;
+    }
+ 
+    .coupon-apply-btn {
+      background-color: var(--teal-bg);
+      color: var(--teal-text);
+      border: none;
+      border-radius: 6px;
+      padding: 0 16px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.2s ease;
+    }
+ 
+    .coupon-apply-btn:hover,
+    .coupon-apply-btn:focus-visible {
+      background-color: var(--teal);
+      color: var(--white);
+      outline: 2px solid var(--brass);
+      outline-offset: 1px;
+    }
+ 
+    .secure-note {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--slate);
+      margin-top: 20px;
+    }
+ 
+    .form-actions {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+ 
+    .form-submit {
+      display: inline-block;
+      background-color: var(--brass);
+      color: var(--ink);
+      border: none;
+      border-radius: 6px;
+      padding: 12px 26px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+ 
+    .form-submit:hover,
+    .form-submit:focus-visible {
+      opacity: 0.92;
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+    }
+ 
+    .form-status {
+      font-size: 13px;
+      color: var(--teal-text);
+      display: none;
+    }
+ 
+    .form-status.is-visible {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+ 
+    .form-status.is-error {
+      color: #C0492E;
+    }
+ 
+    .checkout-form fieldset {
+      border: none;
+      padding: 0;
+      margin: 0 0 28px;
+      min-width: 0;
+    }
+ 
+    .checkout-form fieldset:last-of-type {
+      margin-bottom: 0;
+    }
+ 
+    .checkout-form legend {
+      display: block;
+      width: 100%;
+      font-size: 16px;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+ 
+    .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background-color: var(--parchment);
+      color: var(--charcoal);
+      font-size: 14px;
+      font-family: inherit;
+    }
+ 
+    .form-group select:focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 1px;
+    }
+ 
+    .form-group input[type="tel"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background-color: var(--parchment);
+      color: var(--charcoal);
+      font-size: 14px;
+      font-family: inherit;
+    }
+ 
+    .form-group input[type="tel"]:focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 1px;
+    }
+ 
+    @media (max-width: 768px) {
+      .checkout-container {
+        grid-template-columns: 1fr;
+      }
+    }
+ 
+    @media (max-width: 600px) {
+      .form-row,
+      .form-row-3 {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .checkout-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+  <header>
+    <h1><a href="index.html" style="color: inherit; text-decoration: none;">Nomad Life: Gallery</a></h1>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="artists.html">Artists</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="collection.html">My Collection</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <main>
+    <div class="checkout-container">
+ 
+      <!-- Order Summary -->
+      <aside class="order-summary" aria-label="Order Summary">
+        <h3>Order Summary</h3>
+        <ul id="order-summary-list"></ul>
+        <div class="order-line">
+          <span>Subtotal</span>
+          <span id="order-subtotal-value">$0</span>
+        </div>
+        <div class="order-line order-discount" id="order-discount-row" hidden>
+          <span id="order-discount-label">Discount</span>
+          <span id="order-discount-value">-$0</span>
+        </div>
+        <div class="order-total">
+          <span>Total</span>
+          <span class="total-value" id="order-total-value">$0</span>
+        </div>
+      </aside>
+ 
+      <!-- Purchase Form -->
+      <section aria-labelledby="checkout-heading">
+        <h2 id="checkout-heading" class="section-label" style="padding-left: 0; padding-top: 0;">Checkout</h2>
+ 
+        <form class="checkout-form" id="checkout-form" novalidate>
+ 
+          <fieldset>
+            <legend>Shipping Details</legend>
+ 
+            <div class="form-group">
+              <label for="full-name">Full Name<span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="text" id="full-name" name="full_name" autocomplete="name" required aria-required="true">
+              <p class="field-error" id="full-name-error" aria-live="polite"></p>
+            </div>
+ 
+            <div class="form-group">
+              <label for="street-address">Street Address<span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="text" id="street-address" name="street_address" autocomplete="street-address" required aria-required="true">
+              <p class="field-error" id="street-address-error" aria-live="polite"></p>
+            </div>
+ 
+            <div class="form-row-3">
+              <div class="form-group">
+                <label for="city">City<span class="required-mark" aria-hidden="true">*</span></label>
+                <input type="text" id="city" name="city" autocomplete="address-level2" required aria-required="true">
+                <p class="field-error" id="city-error" aria-live="polite"></p>
+              </div>
+ 
+              <div class="form-group">
+                <label for="state">State<span class="required-mark" aria-hidden="true">*</span></label>
+                <select id="state" name="state" autocomplete="address-level1" required aria-required="true">
+                  <option value="" disabled selected>Select</option>
+                </select>
+                <p class="field-error" id="state-error" aria-live="polite"></p>
+              </div>
+ 
+              <div class="form-group">
+                <label for="zip-code">ZIP Code<span class="required-mark" aria-hidden="true">*</span></label>
+                <input type="text" id="zip-code" name="zip_code" inputmode="numeric" autocomplete="postal-code" placeholder="00000" pattern="[0-9]{5}(-[0-9]{4})?" maxlength="10" required aria-required="true">
+                <p class="field-error" id="zip-code-error" aria-live="polite"></p>
+              </div>
+            </div>
+ 
+            <div class="form-group">
+              <label for="phone-number">Phone Number<span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="tel" id="phone-number" name="phone_number" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" pattern="\(\d{3}\) \d{3}-\d{4}" maxlength="14" required aria-required="true">
+              <p class="field-error" id="phone-number-error" aria-live="polite"></p>
+            </div>
+          </fieldset>
+ 
+          <fieldset>
+            <legend>Payment Details</legend>
+ 
+            <div class="form-group">
+              <label for="cardholder-name">Cardholder Name<span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="text" id="cardholder-name" name="cardholder_name" autocomplete="cc-name" required aria-required="true">
+              <p class="field-error" id="cardholder-name-error" aria-live="polite"></p>
+            </div>
+ 
+            <div class="form-group">
+              <label for="card-number">Credit Card Number<span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="text" id="card-number" name="card_number" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" pattern="[0-9\s]{13,19}" maxlength="19" required aria-required="true">
+              <p class="field-error" id="card-number-error" aria-live="polite"></p>
+            </div>
+ 
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expiration-date">Expiration Date<span class="required-mark" aria-hidden="true">*</span></label>
+                <input type="text" id="expiration-date" name="expiration_date" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" maxlength="5" required aria-required="true">
+                <p class="field-error" id="expiration-date-error" aria-live="polite"></p>
+              </div>
+ 
+              <div class="form-group">
+                <label for="security-code">Security Code<span class="required-mark" aria-hidden="true">*</span>
+                  <span class="hint">3–4 digits, on the back of your card</span>
+                </label>
+                <input type="text" id="security-code" name="security_code" inputmode="numeric" autocomplete="cc-csc" placeholder="CVC" pattern="[0-9]{3,4}" maxlength="4" required aria-required="true">
+                <p class="field-error" id="security-code-error" aria-live="polite"></p>
+              </div>
+            </div>
+ 
+            <div class="form-group">
+              <label for="coupon-code">Coupon Code
+                <span class="hint">Optional — try NOMAD10, WELCOME15, or SIGNAL20</span>
+              </label>
+              <div class="coupon-row">
+                <input type="text" id="coupon-code" name="coupon_code" autocomplete="off">
+                <button type="button" class="coupon-apply-btn" id="apply-coupon-btn">Apply</button>
+              </div>
+              <p class="field-error" id="coupon-code-error" aria-live="polite"></p>
+            </div>
+          </fieldset>
+ 
+          <p class="secure-note">🔒 Payment and shipping details are used only to complete this order and are never stored.</p>
+ 
+          <div class="form-actions">
+            <button type="submit" class="form-submit">Complete Purchase</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </section>
+ 
+    </div>
+  </main>
+ 
+  <footer>
+    <div class="footer-brand">
+      <p>A division of Nomad Life LLC</p>
+      <p>Your work. Your name. Your terms.</p>
+    </div>
+    <p class="copyright">&copy; 2026 Nomad Life: Gallery. All rights reserved.</p>
+  </footer>
+ 
+  <script src="Nomad_Life_Gallery_Products.js"></script>
+  <script src="Nomad_Life_Gallery_Validation.js"></script>
+  <script>
+    // Order summary pulls from the same collectionItems used on My Collection,
+    // standing in for a cart until a dedicated cart model exists in the roadmap.
+    // renderOrderSummary returns the subtotal so the coupon logic below can
+    // discount it without re-reading the DOM.
+    const orderSubtotal = renderOrderSummary(collectionItems, "order-summary-list", "order-subtotal-value");
+    document.getElementById("order-total-value").textContent = preciseCurrencyFormatter.format(orderSubtotal);
+    let appliedDiscount = 0;
+ 
+    const form = document.getElementById("checkout-form");
+    const status = document.getElementById("form-status");
+    const cardNumberInput = document.getElementById("card-number");
+    const expirationInput = document.getElementById("expiration-date");
+    const securityCodeInput = document.getElementById("security-code");
+    const zipCodeInput = document.getElementById("zip-code");
+    const phoneNumberInput = document.getElementById("phone-number");
+    const stateSelect = document.getElementById("state");
+    const couponInput = document.getElementById("coupon-code");
+    const couponError = document.getElementById("coupon-code-error");
+    const discountRow = document.getElementById("order-discount-row");
+    const discountLabel = document.getElementById("order-discount-label");
+    const discountValue = document.getElementById("order-discount-value");
+ 
+    // US states + DC, looped into the State dropdown's options.
+    const usStates = [
+      "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
+      "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia",
+      "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+      "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+      "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+      "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota",
+      "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island",
+      "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
+      "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+    ];
+ 
+    for (let i = 0; i < usStates.length; i++) {
+      const option = document.createElement("option");
+      option.value = usStates[i];
+      option.textContent = usStates[i];
+      stateSelect.appendChild(option);
+    }
+ 
+    // Formats card number input into groups of 4 digits as the visitor types.
+    cardNumberInput.addEventListener("input", function () {
+      const digitsOnly = cardNumberInput.value.replace(/\D/g, "").slice(0, 16);
+      cardNumberInput.value = digitsOnly.replace(/(.{4})/g, "$1 ").trim();
+    });
+ 
+    // Auto-inserts the "/" in MM/YY as the visitor types.
+    expirationInput.addEventListener("input", function () {
+      let digitsOnly = expirationInput.value.replace(/\D/g, "").slice(0, 4);
+      if (digitsOnly.length >= 3) {
+        digitsOnly = digitsOnly.slice(0, 2) + "/" + digitsOnly.slice(2);
+      }
+      expirationInput.value = digitsOnly;
+    });
+ 
+    // Restricts the security code field to digits only.
+    securityCodeInput.addEventListener("input", function () {
+      securityCodeInput.value = securityCodeInput.value.replace(/\D/g, "").slice(0, 4);
+    });
+ 
+    // Keeps ZIP Code to digits and an optional ZIP+4 suffix (e.g. 12345-6789).
+    zipCodeInput.addEventListener("input", function () {
+      let digitsOnly = zipCodeInput.value.replace(/\D/g, "").slice(0, 9);
+      if (digitsOnly.length > 5) {
+        digitsOnly = digitsOnly.slice(0, 5) + "-" + digitsOnly.slice(5);
+      }
+      zipCodeInput.value = digitsOnly;
+    });
+ 
+    // Formats phone number input into (555) 123-4567 as the visitor types.
+    phoneNumberInput.addEventListener("input", function () {
+      const digitsOnly = phoneNumberInput.value.replace(/\D/g, "").slice(0, 10);
+      let formatted = digitsOnly;
+      if (digitsOnly.length > 6) {
+        formatted = `(${digitsOnly.slice(0, 3)}) ${digitsOnly.slice(3, 6)}-${digitsOnly.slice(6)}`;
+      } else if (digitsOnly.length > 3) {
+        formatted = `(${digitsOnly.slice(0, 3)}) ${digitsOnly.slice(3)}`;
+      } else if (digitsOnly.length > 0) {
+        formatted = `(${digitsOnly}`;
+      }
+      phoneNumberInput.value = formatted;
+    });
+ 
+    // Every required field on this page, paired with the format validator
+    // appropriate to that kind of data (name, address, ZIP, phone, card
+    // number w/ Luhn check, expiration w/ expiry check, CVC).
+    const fieldConfigs = [
+      { id: "full-name", required: true, validator: isValidName, message: "Enter a valid name (letters, spaces, hyphens)." },
+      { id: "street-address", required: true, validator: isValidStreetAddress, message: "Enter a valid street address." },
+      { id: "city", required: true, validator: isValidCity, message: "Enter a valid city name." },
+      { id: "state", required: true, validator: isValidState, message: "Select a state." },
+      { id: "zip-code", required: true, validator: isValidZip, message: "Enter a valid ZIP code (12345 or 12345-6789)." },
+      { id: "phone-number", required: true, validator: isValidPhone, message: "Enter a valid 10-digit phone number." },
+      { id: "cardholder-name", required: true, validator: isValidName, message: "Enter the name as it appears on the card." },
+      { id: "card-number", required: true, validator: isValidCardNumber, message: "Enter a valid card number." },
+      { id: "expiration-date", required: true, validator: isValidExpiration, message: "Enter a valid, unexpired MM/YY date." },
+      { id: "security-code", required: true, validator: isValidSecurityCode, message: "Enter a valid 3–4 digit code." }
+    ];
+ 
+    // Validate each required field as the visitor leaves it, so errors show
+    // up before they even reach the submit button.
+    for (let i = 0; i < fieldConfigs.length; i++) {
+      const config = fieldConfigs[i];
+      const input = document.getElementById(config.id);
+      input.addEventListener("blur", function () {
+        validateFields([config]);
+      });
+    }
+ 
+    // Recomputes and redisplays the discount row + grand total for whatever
+    // discount amount is currently applied (0 if no valid coupon is active).
+    function updateOrderTotal() {
+      const total = Math.max(orderSubtotal - appliedDiscount, 0);
+      document.getElementById("order-total-value").textContent = preciseCurrencyFormatter.format(total);
+    }
+ 
+    // Looks up the entered coupon code, checks whether it exists, and — if
+    // it does — applies its percentage discount to either the whole order
+    // or just the specific product(s) it targets.
+    document.getElementById("apply-coupon-btn").addEventListener("click", function () {
+      const code = couponInput.value;
+ 
+      if (!isNonEmpty(code)) {
+        couponError.textContent = "Enter a coupon code first.";
+        discountRow.hidden = true;
+        appliedDiscount = 0;
+        updateOrderTotal();
+        return;
+      }
+ 
+      const coupon = getCoupon(code);
+ 
+      if (!coupon) {
+        couponError.textContent = "That coupon code isn't recognized.";
+        discountRow.hidden = true;
+        appliedDiscount = 0;
+        updateOrderTotal();
+        return;
+      }
+ 
+      appliedDiscount = computeDiscount(collectionItems, orderSubtotal, coupon);
+      couponError.textContent = "";
+      discountLabel.textContent = coupon.description;
+      discountValue.textContent = "-" + preciseCurrencyFormatter.format(appliedDiscount);
+      discountRow.hidden = false;
+      updateOrderTotal();
+    });
+ 
+    // No payment processor or shipping carrier is wired up yet — this
+    // validates the form and gives the visitor clear feedback so it's ready
+    // to connect to a real gateway (e.g. Stripe, a crypto on-ramp) and a
+    // shipping API later in the roadmap. Card and shipping details are never
+    // sent anywhere and are cleared immediately after a simulated successful
+    // submission.
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+ 
+      const isValid = validateFields(fieldConfigs);
+ 
+      if (!isValid) {
+        status.textContent = "Please fix the highlighted fields.";
+        status.className = "form-status is-visible is-error";
+        const firstInvalid = form.querySelector(".is-invalid");
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+ 
+      const total = Math.max(orderSubtotal - appliedDiscount, 0);
+      status.textContent = "Purchase complete (" + preciseCurrencyFormatter.format(total) + "). A confirmation has been sent to your wallet.";
+      status.className = "form-status is-visible";
+      form.reset();
+      clearFieldValidation(fieldConfigs);
+      appliedDiscount = 0;
+      discountRow.hidden = true;
+      couponError.textContent = "";
+      updateOrderTotal();
+    });
+  </script>
+ 
+</body>
+</html>
+ 

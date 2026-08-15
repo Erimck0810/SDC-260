@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nomad Life Gallery — Homepage</title>
+  <link rel="stylesheet" href="Nomad Life Gallery Styles.css">
+</head>
+<body>
+
+  <header>
+    <h1><a href="index.html" style="color: inherit; text-decoration: none;">Nomad Life: Gallery</a></h1>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="artists.html">Artists</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="collection.html">My Collection</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Banner Section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <h2 id="hero-title">Own the art. Verified forever.</h2>
+      <p>Every piece includes a blockchain certificate and a royalty that follows it home.</p>
+      <a href="browse.html" class="cta">Browse the collection</a>
+    </section>
+
+    <!-- Featured Works Section -->
+    <section class="featured-works" aria-labelledby="featured-title">
+      <h2 id="featured-title" class="section-label">Featured works</h2>
+
+      <!-- Nomad_Life_Gallery_Products.js -->
+      <div class="grid" id="product-grid"></div>
+    </section>
+  </main>
+
+  <script src="Nomad_Life_Gallery_Products.js"></script>
+  <script>
+    renderProducts(products.filter(function (p) { return p.featured; }), "product-grid", null, { compact: true });
+  </script>
+
+  <footer>
+    <div class="footer-brand">
+      <p>A division of Nomad Life LLC</p>
+      <p>Your work. Your name. Your terms.</p>
+    </div>
+    <p class="copyright">&copy; 2026 Nomad Life: Gallery. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
