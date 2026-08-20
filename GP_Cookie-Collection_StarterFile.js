@@ -1,7 +1,7 @@
 /*
-    Author:
-    Date:
-    Purpose:
+    Author: Eric Mckinzy    
+    Date: August 20 2026
+    Purpose: Enable responsive behavior and text cookies
 */
 
 /* =========================================
