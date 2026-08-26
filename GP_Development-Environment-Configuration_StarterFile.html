@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Author: Eric Mckinzy 
+        Date: August 25 2026
+        Purpose: Development Environment Configuration
+    --> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Center</title>
+    <link rel="stylesheet" href="GP_Development-Environment-Configuration_StarterFile.css">
+    <script src="GP_Development-Environment-Configuration_StarterFile.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Command Center</h1>
+    
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#status">Status</a></li>
+                <li><a href="#server">Live Server</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="hero">
+            <h2 id="heroTitle">SYSTEM OFFLINE</h2>
+            <p id="heroText">Awaiting Network Access...</p>
+        </section>
+        
+        <section id="status">
+            <h2>System Status</h2>
+        
+            <article>
+                <h3>Connection Status</h3>
+                <p id="connectionStatus">Offline</p>
+            </article>
+        
+            <article>
+                <h3>Last Online</h3>
+                <p id="lastOnline">No previous connection found.</p>
+            </article>
+        </section>
+        
+        <section id="server">
+            <h2>Live Server Systems</h2>
+        
+            <article>
+                <button id="refreshButton">Refresh Interface</button>
+            </article>
+        
+            <article>
+                <h3>Local Host</h3>
+                <p id="hostInfo">Detecting host...</p>
+            </article>
+        
+            <article>
+                <h3>Port Number</h3>        
+                <p id="portInfo">Detecting port...</p>
+            </article>
+        
+            <article>
+                <h3>Protocol</h3>    
+                <p id="protocolInfo">Detecting protocol...</p>
+            </article>
+        </section>
+        
+        <aside>
+            <h2>Mission Brief</h2>
+            <p>Deploy the command center through a local web server running on your computer.
+                While locally hosted, the command node remains isolated from the public internet and accessible
+                only from your local machine.</p>
+        </aside>
+    </main>
+    
+    <footer>
+        <p>&copy; YEAR - Agent: STUDENT_ID</p>
+    </footer>
+</body>
+</html>
